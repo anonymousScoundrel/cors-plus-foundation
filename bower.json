@@ -1,0 +1,17 @@
+{
+  "name": "CORS-plus-Foundation",
+  "version": "0.0.0",
+  "description": "Let's make a cross origin request and play with Foundation too!",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2",
+    "jquery": "~2.1.4"
+  }
+}
