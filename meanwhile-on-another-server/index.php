@@ -34,11 +34,11 @@
 
     $images_to_fetch = (integer) $headers['X-Fetch-Images'];
 
-    $post_not_empty = count($_POST);
+    $has_header = $headers['X-Fetch-Images'];
     # Let's make sure nobody is sending malicious or malformed headers
     # and limit the number so someone can't kill the server.
     # I mean who needs a million urls?
-    if ($post_not_empty && is_int($images_to_fetch) && $images_to_fetch < 100) {
+    if ($has_header && is_int($images_to_fetch) && $images_to_fetch < 100) {
 
         # While iterator is less than header value generate a new image url
         for ($i = 0; $i < $images_to_fetch; $i += 1) {
