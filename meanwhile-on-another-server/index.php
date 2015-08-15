@@ -46,4 +46,6 @@
 
         # Return our image array without escaping slashes
         echo json_encode($images, JSON_UNESCAPED_SLASHES);
+    } else {
+        echo json_encode('error');
     }
