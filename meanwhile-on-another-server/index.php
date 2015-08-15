@@ -1,5 +1,19 @@
 <?php
 
+    /**
+    *
+    * As you probably gathered from the JS file this file actually exists
+    * on http://www.addmorehacks.com/cors. If someone finds this in the future
+    * and wants to test it out themselves. You can do what I did: move this
+    * file to somewhere on your host and modify the JS file to point to your
+    * host server and directory where the file now exists; then just load the
+    * index page locally.
+    *
+    * Keep in mind this is definitely not as secure as it could/should be. Use
+    * at your own discretion.
+    *
+    */
+
     # Allow a CORS request from anywhere: 0/10 wouldn't recommend
     header('Access-Control-Allow-Origin: *');
     # Allow our own invented header to come through
@@ -17,7 +31,7 @@
     $images_to_fetch = (integer) $headers['X-Fetch-Images'];
 
     # Let's make sure nobody is sending malicious or malformed headers
-    # and limit the number so someone can't kill the server
+    # and limit the number so someone can't kill the server.
     # I mean who needs a million urls?
     if (is_int($images_to_fetch) && $images_to_fetch < 100) {
 
