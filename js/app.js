@@ -32,6 +32,8 @@
         if (xhr) {
           xhr.open('POST', url, true);
           // Our custom header defines the number of random images to return
+          // Note: Apache, anyway, capitalizes words separated by hyphens.
+          // So here we just do it for them.
           xhr.setRequestHeader('X-Fetch-Images', 3);
           xhr.onerror = handler;
           xhr.onload = handler;
