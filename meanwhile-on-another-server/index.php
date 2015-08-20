@@ -34,6 +34,9 @@
 
     $images_to_fetch = (integer) $headers['X-Fetch-Images'];
 
+    # Initialize our response array
+    $response = array( 'response' => false, 'images' => array() );
+
     $has_header = $headers['X-Fetch-Images'];
     # Let's make sure nobody is sending malicious or malformed headers
     # and limit the number so someone can't kill the server.
@@ -45,8 +48,11 @@
             $images[] = 'http://www.lorempixel.com/' . get_random_dimensions();
         }
 
-        # Return our image array without escaping slashes
-        echo json_encode($images, JSON_UNESCAPED_SLASHES);
+        # Populate and return our response array without escaping slashes
+        $response['response'] = true;
+        $response['images'] = $images;
+        echo json_encode($response, JSON_UNESCAPED_SLASHES);
     } else {
-        echo json_encode('error');
+        # Return our unpopulated response array as our response
+        echo json_encode($response);
     }
